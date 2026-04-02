@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── CSS Custom Properties (Design Tokens) ────────────────────
+   WHAT THIS DOES: Defines a palette of colors as CSS variables
+   so the whole app stays visually consistent. Changing one
+   variable here updates every element that uses it.
+──────────────────────────────────────────────────────────────── */
+:root {
+  --bg-base:       #0a0d14;
+  --bg-card:       #111827;
+  --bg-card-hover: #161e2e;
+  --border:        #1f2d40;
+  --border-glow:   #2563eb40;
+  --text-primary:  #f0f4ff;
+  --text-secondary:#8899b4;
+  --text-muted:    #4a5a72;
+  --accent-blue:   #3b82f6;
+  --accent-green:  #10b981;
+  --accent-red:    #ef4444;
+  --accent-amber:  #f59e0b;
+  --accent-purple: #8b5cf6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Scrollbar Styling ── */
+::-webkit-scrollbar       { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-base); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* ── Utility Classes ── */
+.font-display { font-family: 'Syne', sans-serif; }
+
+/* ── Gradient text helper ── */
+.gradient-text {
+  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Card glow effect on hover ── */
+.card-glow {
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.card-glow:hover {
+  box-shadow: 0 0 0 1px var(--border-glow), 0 8px 32px rgba(37, 99, 235, 0.08);
+  border-color: #2563eb60;
+}
+
+/* ── Fade-in animation ── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-in-up {
+  animation: fadeInUp 0.45s ease both;
+}
+
+/* ── Pulse dot (live indicator) ── */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.85); }
+}
+.pulse-dot {
+  animation: pulse-dot 2s infinite;
+}
+
+/* ── Row hover flash ── */
+@keyframes rowFlash {
+  0%   { background-color: rgba(59, 130, 246, 0.15); }
+  100% { background-color: transparent; }
+}
+.row-flash {
+  animation: rowFlash 0.8s ease;
+}
+
+/* ── Input focus ring ── */
+input:focus, select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.35);
+}
