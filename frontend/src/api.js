@@ -8,7 +8,7 @@
 
 // The base URL of our Express backend.
 // In production you'd replace this with an environment variable.
-const BASE_URL = "http://localhost:5000/api";
+const API_BASE_URL = "/api";
 
 // ── Helper: handleResponse ───────────────────────────────────
 // WHAT IT DOES: Checks if the HTTP response was successful
